@@ -63,8 +63,12 @@ def welcome():
 
 #Game loop 
 def gameloop():
-
-    f = open("highscore.txt", "r+")
+    try:
+        f = open("highscore.txt", "r+")
+    except Exception:
+        f = open("highscore.txt", "w")
+        f.write("0")
+        f = open("highscore.txt", "r+")
     highscore = int(f.read())
     
     #game specific vairable
